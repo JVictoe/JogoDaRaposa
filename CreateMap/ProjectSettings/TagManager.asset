@@ -1,0 +1,77 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!78 &1
+TagManager:
+  serializedVersion: 2
+  tags:
+  - Chao
+  - Aguia
+  - balas
+  - vilao
+  layers:
+  - Default
+  - TransparentFX
+  - Ignore Raycast
+  - Chao
+  - Water
+  - UI
+  - Ground
+  - Vilao
+  - Heroi
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  m_SortingLayers:
+  - name: Default
+    uniqueID: 0
+    locked: 0
+  - name: Background
+    uniqueID: 2694388959
+    locked: 0
+  - name: Cave
+    uniqueID: 4091027395
+    locked: 0
+  - name: Foreground
+    uniqueID: 1493467441
+    locked: 0
+  - name: Foreground2
+    uniqueID: 2208438215
+    locked: 0
+  - name: Props
+    uniqueID: 1458872283
+    locked: 0
+  - name: Bordas
+    uniqueID: 1962930183
+    locked: 0
+  - name: Plataforma
+    uniqueID: 4153868933
+    locked: 0
+  - name: Bush
+    uniqueID: 1378641369
+    locked: 0
+  - name: Character
+    uniqueID: 2369793899
+    locked: 0
+  - name: Inimigo
+    uniqueID: 1300294093
+    locked: 0
