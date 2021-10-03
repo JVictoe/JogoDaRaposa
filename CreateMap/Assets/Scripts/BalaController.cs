@@ -50,6 +50,7 @@ public class BalaController : MonoBehaviour
         if (collision.gameObject.name.Equals("player"))
         {
             alvo.anim.SetTrigger("Hurt");
+            LifeController.instance.SetLifeAmount(0.5f);
             Destroy(gameObject);
         }
     }

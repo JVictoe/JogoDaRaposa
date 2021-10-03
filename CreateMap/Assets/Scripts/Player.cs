@@ -1,6 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class Player : MonoBehaviour
 {
@@ -30,13 +32,11 @@ public class Player : MonoBehaviour
 
     void Start()
     {
-        
+        SoundController.instance.SoundEffectsController(Sound.game);
     }
-
 
     void Update()
     {
-
         anim.SetFloat("SpeedX", Mathf.Abs(movimentFlip));
         anim.SetFloat("SpeedY", rb.velocity.y);
         anim.SetBool("isGround", isGround);
@@ -98,6 +98,7 @@ public class Player : MonoBehaviour
 
     void Jump()
     {
+        SoundController.instance.SoundEffectsController(Sound.pulo);
         nJump--;
 
         rb.velocity = Vector2.up * jumpForce;
@@ -140,6 +141,12 @@ public class Player : MonoBehaviour
     {
         isGround = Physics2D.OverlapCircle(checkPeDireito.position, radius, ground);
         isGround = Physics2D.OverlapCircle(checkPeEsquerdo.position, radius, ground);
+    }
+
+    public void Death()
+    {
+        Destroy(gameObject);
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex, LoadSceneMode.Single);
     }
 
 }

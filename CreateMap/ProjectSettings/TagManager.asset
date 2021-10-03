@@ -8,6 +8,8 @@ TagManager:
   - Aguia
   - balas
   - vilao
+  - BalaAguia
+  - Flecha
   layers:
   - Default
   - TransparentFX
@@ -74,4 +76,7 @@ TagManager:
     locked: 0
   - name: Inimigo
     uniqueID: 1300294093
+    locked: 0
+  - name: Canvas
+    uniqueID: 1602998201
     locked: 0

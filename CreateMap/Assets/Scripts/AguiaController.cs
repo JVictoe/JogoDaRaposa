@@ -26,12 +26,12 @@ public class AguiaController : MonoBehaviour
     bool face;
     public bool pontoAtaque;
     bool triggerBool = false;
+    bool ataqueTrue = false;
 
     // Start is called before the first frame update
     void Start()
     {
         Physics2D.IgnoreLayerCollision(7, 7);
-        Physics2D.IgnoreLayerCollision(7, 8);
     }
 
     // Update is called once per frame
@@ -44,15 +44,13 @@ public class AguiaController : MonoBehaviour
         {
             var relativeP = transform.InverseTransformPoint(alvo.transform.position);
 
-            if(relativeP.x < 0.0f)
+            if(relativeP.x <= 0.0f)
             {
-                Debug.LogError("Esquerda");
                 aguia.flipX = false;
                 face = true;
             }
             else if(relativeP.x > 0.0f)
             {
-                Debug.LogError("Direita");
                 aguia.flipX = true;
                 face = false;
             }
@@ -86,20 +84,19 @@ public class AguiaController : MonoBehaviour
         
 
         VerificaColisao();
+
     }
 
     void Atacar()
     {
-        StartCoroutine(AguardarAtaque());
-        GameObject balaInst = Instantiate(bala, positionBala.transform.position, Quaternion.identity);
-        balaInst.GetComponent<BalaController>().alvo = alvo;
-        balaInst.GetComponent<BalaController>().Vel *= 1;
-        Destroy(balaInst, 3f);
-    }
-
-    IEnumerator AguardarAtaque()
-    {
-        yield return tempoAtaque;
+        if(GameObject.FindWithTag("BalaAguia") == null)
+        {
+            GameObject balaInst = Instantiate(bala, positionBala.transform.position, Quaternion.identity);
+            balaInst.GetComponent<BalaController>().alvo = alvo;
+            balaInst.GetComponent<BalaController>().Vel *= 1;
+            Destroy(balaInst, 3f);
+        }
+        
     }
 
     void Flip()
@@ -160,11 +157,10 @@ public class AguiaController : MonoBehaviour
 
     //private void OnTriggerExit2D(Collider2D collision)
     //{
-    //    if(collision.gameObject.name.Equals("player") && triggerBool)
+    //    if (collision.gameObject.name.Equals("player"))
     //    {
-    //        Debug.LogError("sai qunatas vezers ????");
-    //        triggerBool = false;
-    //        rb.simulated = true;
+    //        newMusic = true;
+    //        newMusicController = true;
     //    }
     //}
 }

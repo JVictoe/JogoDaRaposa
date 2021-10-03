@@ -16,7 +16,7 @@ GameObject:
   - component: {fileID: 7825947264648015685}
   m_Layer: 0
   m_Name: penaAguiaAtaque
-  m_TagString: Untagged
+  m_TagString: BalaAguia
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -98,7 +98,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ebf410d788416014c88af7a3b4ac575e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  alvo: {fileID: 9179692298710966226}
+  alvo: {fileID: 0}
 --- !u!95 &4065658691236508992
 Animator:
   serializedVersion: 3

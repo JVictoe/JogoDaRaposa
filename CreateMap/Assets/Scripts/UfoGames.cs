@@ -10,12 +10,14 @@ public class UfoGames : MonoBehaviour
     public float positionY;
     public float positionZ;
 
+    //[SerializeField] private SoundController _sound = default;
+    //public static SoundController Sound { get { return instance._sound; } set {  } }
+
     private void Awake()
     {
 
         if(instance == null)
         {
-            Debug.LogError("Veio aquiii");
             instance = this;
             DontDestroyOnLoad(this.gameObject);
         }
@@ -30,9 +32,4 @@ public class UfoGames : MonoBehaviour
         
     }
 
-
-    void Update()
-    {
-        
-    }
 }
