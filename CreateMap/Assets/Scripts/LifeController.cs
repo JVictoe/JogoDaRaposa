@@ -24,10 +24,10 @@ public class LifeController : MonoBehaviour
         }
     }
 
-    void Start()
+    private void Update()
     {
-        life = FindObjectOfType<Life>();
-        player = FindObjectOfType<Player>();
+        if (life == null) life = FindObjectOfType<Life>();
+        if (player == null) player = FindObjectOfType<Player>();
     }
 
     public void SetLifeAmount(float danoRecebido)

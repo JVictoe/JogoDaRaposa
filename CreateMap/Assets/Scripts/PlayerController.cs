@@ -22,14 +22,8 @@ public class PlayerController : MonoBehaviour
         }
     }
 
-    void Start()
-    {
-        player = FindObjectOfType<Player>();
-    }
-
-    // Update is called once per frame
     void Update()
     {
-        
+        if(player == null) player = FindObjectOfType<Player>();
     }
 }

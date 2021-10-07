@@ -87,6 +87,7 @@ public class GoblinBossController : MonoBehaviour
             GameObject balaInst = Instantiate(bala, positionBala.transform.position, Quaternion.identity);
             balaInst.GetComponent<FlechaController>().alvo = alvo;
             balaInst.GetComponent<FlechaController>().Vel *= 1.5f;
+            balaInst.GetComponent<FlechaController>().lado = face;
             Destroy(balaInst, 3f);
         }
     }

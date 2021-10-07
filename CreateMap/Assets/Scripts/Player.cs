@@ -8,7 +8,7 @@ public class Player : MonoBehaviour
 {
     [SerializeField] private Rigidbody2D rb = default;
     public Animator anim = default;
-    //[SerializeField] private MoveBackground[] moveBackground = default;
+    [SerializeField] private Button jump = default;
 
     public float speed;
     public float jumpForce;
@@ -29,6 +29,11 @@ public class Player : MonoBehaviour
     public int nJump;
 
     Vector3 moviment;
+
+    private void Awake()
+    {
+        jump.onClick.AddListener(CheckInput);
+    }
 
     void Start()
     {
@@ -103,11 +108,19 @@ public class Player : MonoBehaviour
 
         rb.velocity = Vector2.up * jumpForce;
 
+#if UNITY_EDITOR
         if (isGround && Input.GetKeyDown(KeyCode.Space) && isGround)
         {
             rb.velocity = Vector2.up * jumpForce;
             isGround = false;
         }
+#else
+        if (isGround)
+        {
+            rb.velocity = Vector2.up * jumpForce;
+            isGround = false;
+        }
+#endif
     }
 
     void Flip()
@@ -131,10 +144,17 @@ public class Player : MonoBehaviour
             nJump = 1;
         }
 
+#if UNITY_EDITOR
         if(Input.GetKeyDown(KeyCode.Space) && nJump > 0)
         {
             Jump();
         }
+#else
+        if(nJump > 0)
+        {
+            Jump();
+        }
+#endif
     }
 
     void CheckGround()
@@ -147,6 +167,14 @@ public class Player : MonoBehaviour
     {
         Destroy(gameObject);
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex, LoadSceneMode.Single);
+    }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if(collision.gameObject.CompareTag("limitChao"))
+        {
+            Death();
+        }
     }
 
 }

@@ -10,6 +10,7 @@ TagManager:
   - vilao
   - BalaAguia
   - Flecha
+  - limitChao
   layers:
   - Default
   - TransparentFX
